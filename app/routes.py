@@ -4,7 +4,7 @@ from app.forms import SearchForm
 from app.models import Stock, Index
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
 
@@ -15,6 +15,7 @@ def index():
         if stocks.has_next else None
     prev_url = url_for('index', page=stocks.prev_num) \
         if stocks.has_prev else None
+
     form = SearchForm()
     if form.validate_on_submit():
         stocks = Stock.query.filter_by(stockname=form.stockid.data).paginate(

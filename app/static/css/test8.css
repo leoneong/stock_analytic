@@ -1,0 +1,19 @@
+body {
+    
+    margin-top: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+
+  }
+
+.txt {
+    display: inline-block;
+    margin-right:0;
+
+
+}
+.btn {
+    display: inline-block;
+    margin-left: 0;
+    
+}

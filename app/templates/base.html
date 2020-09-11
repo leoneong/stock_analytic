@@ -1,14 +1,27 @@
+<meta http-equiv="pragma" content="no-cache"> 
+<meta http-equiv="cache-control" content=" no-cache" > 
+<meta http-equiv="expires" content="0" >
 {% extends 'bootstrap/base.html' %}
 
+
 <html>
+    
+    
     <head>
+        
       {% if title %}
       <title>{{ title }} - BursaTrend Analytic</title>
       {% else %}
       <title>Welcome to BursaTrend Analytic</title>
       {% endif %}
+      
     </head>
     <body>
+        {% block styles %}
+        {{super()}}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/test8.css') }}">
+        {% endblock %}
+      
         {% block navbar %}
         <nav class="navbar navbar-default">
             <div class="container">
@@ -33,6 +46,7 @@
     
     {% block content %}
     <div class="container">
+        
         {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
