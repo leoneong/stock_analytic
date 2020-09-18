@@ -1,8 +1,8 @@
-"""stocks table
+"""empty message
 
-Revision ID: 14b6eccb63d5
-Revises: 
-Create Date: 2020-05-02 15:09:08.210120
+Revision ID: e287b207658e
+Revises: 75fa35c8c620
+Create Date: 2020-09-18 01:10:28.881456
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '14b6eccb63d5'
-down_revision = None
+revision = 'e287b207658e'
+down_revision = '75fa35c8c620'
 branch_labels = None
 depends_on = None
 
@@ -21,11 +21,10 @@ def upgrade():
     op.create_table('stock',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('stockname', sa.String(length=64), nullable=True),
-    sa.Column('description', sa.String(length=120), nullable=True),
-    sa.Column('daytrend', sa.String(length=64), nullable=True),
-    sa.Column('monthtrend', sa.String(length=64), nullable=True),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('description')
+    sa.Column('trend', sa.Integer(), nullable=True),
+    sa.Column('accuracy', sa.Integer(), nullable=True),
+    sa.Column('risk', sa.Integer(), nullable=True),
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_stock_stockname'), 'stock', ['stockname'], unique=True)
     # ### end Alembic commands ###

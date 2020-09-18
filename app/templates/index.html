@@ -17,15 +17,17 @@
             <tr>
               <th>Stockid</th>
               <th>Stockname</th>
-              <th>Description</th>
               <th>Trend</th>
+              <th>Accuracy</th>
+              <th>Risk</th>
             </tr>
             {% for stocks in stocks %}
             <tr>
               <td>{{ stocks.id }}</td>
               <td>{{ stocks.stockname}}</td>
-              <td>{{ stocks.description }}</td>
-              <td>{{ stocks.daytrend }}</td>
+              <td>{{ stocks.trend }}</td>
+              <td>{{ stocks.accuracy }}</td>
+              <td>{{ stocks.risk }}</td>
             </tr>
             {% endfor %}
           </table>     
